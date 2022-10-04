@@ -6,9 +6,9 @@ const notFound = (req, res) => {
   if (req.accepts("html")) {
     res.sendFile(path.join(__dirname, "../../public", "NoFound.html"));
   } else if (req.accepts("json")) {
-    error(req, res, "Not found", 404, "Not found");
+    error(req, res, "no encontrado", 404, "no encontrado");
   } else {
-    res.type("txt").send("404 Not Found");
+    res.type("txt").send("404 no encontrado");
   }
 };
 

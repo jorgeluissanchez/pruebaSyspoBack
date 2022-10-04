@@ -12,6 +12,7 @@ const router = require("./network/routes");
 const { config } = require("./config");
 const cookieParser = require("cookie-parser");
 const credentials = require("./network/middleware/credentials");
+const port = config.port;
 
 db();
 
@@ -30,6 +31,6 @@ app.use(cookieParser());
 router(app);
 app.use(config.public_route, express.static("public"));
 
-app.listen(5000, () => {
-  console.log(`Server running on port ${config.port}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });

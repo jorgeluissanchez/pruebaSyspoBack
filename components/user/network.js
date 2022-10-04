@@ -18,7 +18,7 @@ router.post("/registro", (req, res) => {
       success(req, res, data, 201);
     })
     .catch((err) => {
-      error(req, res, "Error interno", 500, err);
+      error(req, res, "error interno", 500, err);
     });
 });
 
@@ -28,7 +28,7 @@ router.get("/:id", verifyJWT, (req, res) => {
       success(req, res, data, 200);
     })
     .catch((err) => {
-      error(req, res, "Error interno", 500, err);
+      error(req, res, "error interno", 500, err);
     });
 });
 router.get("/", verifyJWT, (req, res) => {
@@ -37,27 +37,27 @@ router.get("/", verifyJWT, (req, res) => {
       success(req, res, data, 200);
     })
     .catch((err) => {
-      error(req, res, "Error interno", 500, err);
+      error(req, res, "error interno", 500, err);
     });
 });
 
 router.put("/:id", verifyJWT, (req, res) => {
   updateController(req.params.id, req.body, req.files)
     .then(() => {
-      success(req, res, `El usuario ${req.params.id} ha sido actualizado`, 200);
+      success(req, res, `usuario ${req.params.id} ha sido actualizado`, 200);
     })
     .catch((err) => {
-      error(req, res, "Error Interno", 500, err);
+      error(req, res, "error interno", 500, err);
     });
 });
 
 router.delete("/:id", verifyJWT, (req, res) => {
   deleteController(req.params.id)
     .then(() => {
-      success(req, res, `El usuario ${req.params.id} ha sido eliminado`, 200);
+      success(req, res, `usuario ${req.params.id} ha sido eliminado`, 200);
     })
     .catch((err) => {
-      success(req, res, "Error Interno", 500, err);
+      success(req, res, "error interno", 500, err);
     });
 });
 
@@ -67,7 +67,7 @@ router.post("/login", (req, res) => {
       success(req, res, data, 201);
     })
     .catch((err) => {
-      error(req, res, "Internal error", 500, err);
+      error(req, res, "error interno", 500, err);
     });
 });
 

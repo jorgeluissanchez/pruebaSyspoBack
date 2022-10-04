@@ -5,7 +5,6 @@ const verifyJWT = require("../../network/middleware/verifyJWT");
 const {
   createController,
   readOneController,
-  readOnePdfController,
   readAllController,
   printPDF,
   updateController,
@@ -20,7 +19,7 @@ router.post("/", verifyJWT, (req, res) => {
       response.success(req, res, info, 201);
     })
     .catch((err) => {
-      response.error(req, res, "Internal error", 500, err);
+      response.error(req, res, "error interno", 500, err);
     });
 });
 
@@ -30,7 +29,7 @@ router.get("/:id", verifyJWT, (req, res) => {
       response.success(req, res, info, 200);
     })
     .catch((err) => {
-      response.error(req, res, "Internal error", 500, err);
+      response.error(req, res, "error interno", 500, err);
     });
 });
 
@@ -46,7 +45,7 @@ router.get("/", verifyJWT, (req, res) => {
       response.success(req, res, info, 200);
     })
     .catch((err) => {
-      response.error(req, res, "Internal error", 500, err);
+      response.error(req, res, "error interno", 500, err);
     });
 });
 
@@ -56,27 +55,22 @@ router.put("/:id", verifyJWT, (req, res) => {
       response.success(
         req,
         res,
-        `Product ${req.params.id} has been update`,
+        `Pdf ${req.params.id} ha sido actualizado`,
         200
       );
     })
     .catch((err) => {
-      response.error(req, res, "Internal error", 500, err);
+      response.error(req, res, "error interno", 500, err);
     });
 });
 
 router.delete("/:id", verifyJWT, (req, res) => {
   deleteController(req.params.id)
     .then(() => {
-      response.success(
-        req,
-        res,
-        `Product ${req.params.id} has been deleted`,
-        200
-      );
+      response.success(req, res, `Pdf ${req.params.id} ha sido eliminado`, 200);
     })
     .catch((err) => {
-      response.success(req, res, "Internal error", 500, err);
+      response.success(req, res, "error interno", 500, err);
     });
 });
 
